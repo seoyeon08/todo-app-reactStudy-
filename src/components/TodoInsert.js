@@ -9,9 +9,12 @@ const TodoInsert = ({ onInsert }) => {
   }, []);
 
   const onClick = useCallback(
-    () => {
+    e => {
       onInsert(value);
       setValue('');  //value 값 초기화
+
+      //이를 방지하기 위해 이 함수를 호출합니다.
+      e.preventDefault();
     },
     [onInsert, value],
   );
